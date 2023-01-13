@@ -4,14 +4,15 @@ import Button from "./UI/Button";
 
 const InvalidModal = (props) => {
 
-  function removeModalHandler(e) {
-    e.preventDefault();
-  }
+  // function removeModalHandler(e) {
+  //   e.preventDefault();
+
+  // }
 
 
   return (
     <article className={styles.article}>
-      <div className={styles.backdrop} onClick={removeModalHandler}></div>
+      <div className={styles.backdrop} onClick={props.onRemoveModal}></div>
       <form className={styles.form} >
         <header className={styles.header}>
           <h2>Invalid Input</h2>
@@ -20,7 +21,7 @@ const InvalidModal = (props) => {
           <p>{props.message}</p>
         </main>
         <div>
-          <Button onClick={removeModalHandler} className={styles.button}>
+          <Button onClick={props.onRemoveModal} className={styles.button}>
             okay
           </Button>
         </div>
