@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import styles from "./App.module.css";
+import UserDataLists from "./components/UserDataLists";
+import UserForm from "./components/UserForm";
+
+const Dummy_Texts = [
+  { username: "Yusuf", age: 25 },
+  { username: "Azeez", age: 12 },
+];
 
 function App() {
+  const [userInfo, setUserInfo] = useState(Dummy_Texts);
+
+  const saveEnteredDataHanler = (enteredUserInfo) => {
+    setUserInfo((prev) => {
+      // return {  enteredUserInfo, ...prev };
+      const updatedGoals = [...prev];
+      updatedGoals.unshift({username:enteredUserInfo.username, age: enteredUserInfo.age, id: Math.random().toString() });
+      return updatedGoals;
+    });
+  };
+  console.log(userInfo);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      <UserForm enteredDataTexts={saveEnteredDataHanler} />
+      <UserDataLists userDatas={userInfo} />
     </div>
   );
 }

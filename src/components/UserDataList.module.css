@@ -1,0 +1,27 @@
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul{
+    background-color: rgb(255, 249, 249);
+    padding: 15px 0px;
+    width: 90vw;
+    border-radius: 7px;
+    list-style: none;
+    max-width: 460px;
+}
+
+li{
+    border: 1px solid black;
+    padding: 3px 3px;
+    margin: 5px 10px;
+}
+
+/* @media (min-width: 600px) {
+    ul {
+      width: 500px;
+    }
+} */
